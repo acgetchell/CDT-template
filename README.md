@@ -1,4 +1,4 @@
-# cpp_starter_project
+# CDT-template
 
 [![codecov](https://codecov.io/gh/lefticus/cpp_starter_project/branch/master/graph/badge.svg)](https://codecov.io/gh/lefticus/cpp_starter_project)
 
@@ -10,16 +10,6 @@
 
 
 ## Getting Started
-
-### Use the Github template
-First, click the green `Use this template` button near the top of this page.
-This will take you to Github's ['Generate Repository'](https://github.com/lefticus/cpp_starter_project/generate) page. 
-Fill in a repository name and short description, and click 'Create repository from template'. 
-This will allow you to create a new repository in your Github account, 
-prepopulated with the contents of this project. 
-Now you can clone the project locally and get to work!
-
-    $ git clone https://github.com/<user>/<your_new_repo>.git
 
 ### Remove frameworks you're not going to use
 If you know you're not going to use one or more of the optional gui/graphics 
