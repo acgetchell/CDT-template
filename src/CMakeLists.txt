@@ -42,11 +42,21 @@ if(CPP_STARTER_USE_NANA)
 endif()
 
 # Generic test that uses conan libs
-add_executable(intro main.cpp)
+add_executable(naval_fate main.cpp)
 target_link_libraries(
-  intro
+  naval_fate
   PRIVATE project_options
           project_warnings
           CONAN_PKG::docopt.cpp
           CONAN_PKG::fmt
           CONAN_PKG::spdlog)
+
+#include_directories(BEFORE ${PROJECT_SOURCE_DIR}/include)
+#add_executable(naval_fate main.cpp)
+#target_link_libraries(
+#    naval_fate
+#    PRIVATE project_options
+#            project_warnings
+#            CONAN_PKG::fmt
+#)
+

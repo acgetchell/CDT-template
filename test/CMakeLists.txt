@@ -50,3 +50,17 @@ catch_discover_tests(
   -s
   --reporter=xml
   --out=relaxed_constexpr.xml)
+
+include_directories(BEFORE ${PROJECT_SOURCE_DIR}/include)
+add_executable(raii_tests RAII_test.cpp)
+target_link_libraries(raii_tests PRIVATE project_warnings project_options catch_main CONAN_PKG::fmt)
+
+catch_discover_tests(
+    raii_tests
+    TEST_PREFIX
+    "raii."
+    EXTRA_ARGS
+    -s
+    --reporter=xml
+    --out=raii.xml
+)
