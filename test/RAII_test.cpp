@@ -45,7 +45,7 @@ SCENARIO("Instantiate an RAII class", "[RAII]")
   }
 }
 
-SCENARIO("Mutating the RAII class", "[RAII]")
+SCENARIO("Mutating the RAII class", "[RAII][!mayfail]")
 {
   GIVEN("A RAII class constructed with a dataset.")
   {
