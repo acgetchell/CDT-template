@@ -4,9 +4,9 @@
 #include "Dataset.hpp"
 #include "RAII.hpp"
 #include <catch2/catch.hpp>
-#include <vector>
 #include <fmt/format.h>
 #include <fmt/ranges.h>
+#include <vector>
 
 SCENARIO("Instantiate a Dataset", "[Dataset]")
 {
@@ -29,7 +29,7 @@ SCENARIO("Instantiate an RAII class", "[RAII]")
   GIVEN("A dataset.")
   {
     std::vector a{ 1, 2, 3 };
-    auto c = Dataset(a);
+    auto        c = Dataset(a);
     WHEN("An RAII class is constructed with the dataset.")
     {
       auto e = RAII(c);
@@ -50,12 +50,12 @@ SCENARIO("Mutating the RAII class", "[RAII]")
   GIVEN("A RAII class constructed with a dataset.")
   {
     std::vector a{ 1, 2, 3 };
-    auto c = Dataset(a);
-    auto e = RAII(c);
+    auto        c = Dataset(a);
+    auto        e = RAII(c);
     WHEN("The internal data is changed.")
     {
       std::vector b{ 4, 5, 6 };
-      auto d = Dataset(b);
+      auto        d = Dataset(b);
       e.mutate(d);
       REQUIRE_FALSE(e.internal_get().data_ == e.source_get().data_);
       THEN("The source data doesn't change.")
@@ -74,6 +74,13 @@ SCENARIO("Mutating the RAII class", "[RAII]")
         REQUIRE(e.source_get().data_ == a);
         fmt::print("Dataset vector is now {}\n", a);
         fmt::print("Source data is {}\n", e.source_get().data_);
+      }
+      THEN("But the RAII internal data is not changed.")
+      {
+        fmt::print("Dataset constructed with {}\n", a);
+        fmt::print("Source data is {}\n", e.source_get().data_);
+        fmt::print("Internal data is {}\n", e.internal_get().data_);
+        REQUIRE_FALSE(e.internal_get().data_ == a);
       }
     }
   }

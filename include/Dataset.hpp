@@ -8,7 +8,7 @@ template<typename T>
 struct Dataset
 {
   explicit Dataset(T& data) : data_{ data } {}
-  T& data_;
+  T&   data_;
   bool operator==(Dataset const& rhs) const
   {
     return (this->data_ == rhs.data_);

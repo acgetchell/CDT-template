@@ -11,13 +11,19 @@ template<typename T>
 class RAII
 {
 private:
-  T const& source_data;
+  T const&           source_data;
   std::unique_ptr<T> internal_copy;
 
 public:
   explicit RAII(T const& dataset) : source_data{ dataset }, internal_copy{ std::make_unique<T>(dataset) } {}
-  [[nodiscard]] auto source_get() const { return source_data; }
-  [[nodiscard]] auto internal_get() const { return *internal_copy; }
+  [[nodiscard]] auto source_get() const
+  {
+    return source_data;
+  }
+  [[nodiscard]] auto internal_get() const
+  {
+    return *internal_copy;
+  }
   void mutate(T data)
   {
     internal_copy = std::make_unique<T>(data);

@@ -59,4 +59,3 @@ target_link_libraries(
 #            project_warnings
 #            CONAN_PKG::fmt
 #)
-
